@@ -25,4 +25,12 @@ public class CurriculoService {
     public Curriculo saveCurriculo(Curriculo curriculo) {
         return curriculoRepository.save(curriculo);
     }
+
+    public boolean deletarCurriculo(Long id) {
+        if (curriculoRepository.existsById(id)) {
+            curriculoRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
 }
